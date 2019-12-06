@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Cadastro.css">
-   
+    <script src="cadastrar.js"></script>
 </head>
 <title>Cadastro </title>
 
 <body>
-<form class="form-horizontal">  
+<form id="cadastrar" action="javascript:enviarForm();" class="form-horizontal">  
 <fieldset>
 <div class="panel panel-primary">
     <div class="panel-heading">Formulário de Cadastro - Membro</div>
@@ -77,15 +78,6 @@
       OnKeyPress="formatar('## #####-####', this)">
     </div>
   </div>
-  
-    <label class="col-md-1 control-label" for="prependedtext">Telefone</label>
-     <div class="col-md-2">
-    <div class="input-group">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13"  pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-      OnKeyPress="formatar('## #####-####', this)">
-    </div>
-  </div>
  </div> 
 
 <!-- Prepended text-->
@@ -94,7 +86,7 @@
   <div class="col-md-5">
     <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+      <input id="email" name="email" class="form-control" placeholder="email@email.com" required="" type="text" >
     </div>
   </div>
 </div>
@@ -104,7 +96,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
   <div class="col-md-2">
-    <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="8" pattern="[0-9]+$">
+    <input id="cep" name="cep" placeholder="Apenas números" class="form-control input-md" required="" value="" type="search" maxlength="10" >
   </div>
  
 </div>
@@ -122,7 +114,7 @@
     <div class="col-md-2">
     <div class="input-group">
       <span class="input-group-addon">Nº <h11>*</h11></span>
-      <input id="numero" name="numero" class="form-control" placeholder="" required=""  type="text">
+      <input id="numero" name="numero" class="form-control" placeholder="" required=""  type="number">
     </div>
     
   </div>
@@ -159,7 +151,7 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="Estado Civil">Estado Civil <h11>*</h11></label>
   <div class="col-md-2">
-    <select required id="Estado Civil" name="Estado Civil" class="form-control">
+    <select required id="EstadoCivil" name="EstadoCivil" class="form-control">
         <option value=""></option>
       <option value="Solteiro(a)">Solteiro(a)</option>
       <option value="Casado(a)">Casado(a)</option>
@@ -174,16 +166,8 @@
   <div class="col-md-3">
     <div class="input-group">
       <span class="input-group-addon">     
-        <label class="radio-inline" for="radios-0">
-      <input type="radio" name="filhos" id="filhos" value="nao" onclick="desabilita('filhos_qtd')" required>
-      Não
-    </label> 
-    <label class="radio-inline" for="radios-1">
-      <input type="radio" name="filhos" id="filhos" value="sim" onclick="habilita('filhos_qtd')">
-      Sim
-    </label>
-      </span>
-      <input id="filhos_qtd" name="filhos_qtd" class="form-control" type="text" placeholder="Quantos?" pattern="[0-9]+$" >
+           </span>
+      <input id="filhos_qtd" name="filhos_qtd" class="form-control" type="number" placeholder="Quantos?" pattern="[0-9]+$" >
       
     </div>
     
@@ -224,7 +208,8 @@
 <div class="form-group">
         <label class="col-md-2 control-label" for="Cadastrar"></label>
         <div class="col-md-8">
-          <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+          <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">
+            <a href="http://localhost:8080/SGCWeb/FrontEnd/index_home.html">Cadastrar</a></button>
           <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
         </div>
       </div>
@@ -243,7 +228,7 @@
 
 </fieldset>
 </form>
-
-</script>
 </body>
+
+
 </html>
